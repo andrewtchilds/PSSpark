@@ -8,7 +8,7 @@ function Parse-SparkMessage {
         $InputObject = $InputObject.items
     }
 
-    if($InputObject.count -le 0) {
+    if(($InputObject.count -le 0) -and ($InputObject -is [Object[]])) {
         return
     }
 
