@@ -4,11 +4,7 @@
 
 A PowerShell module for working with the Cisco Spark REST API
 
-## Installing
-
-The easiest way to get PSSpark is using the [PowerShell Gallery](https://powershellgallery.com/packages/PSSpark/)!
-
-### Installing the module
+## Installing the module
 
 Install the module using:
 
@@ -16,7 +12,7 @@ Install the module using:
 PS> Install-Module -Name PSSpark
 ```
 
-### Updating PSSpark
+## Updating PSSpark
 
 Once installed from the PowerShell Gallery, you can update it using:
 
@@ -24,7 +20,7 @@ Once installed from the PowerShell Gallery, you can update it using:
 PS> Update-Module -Name PSSpark
 ```
 
-### Removing PSSpark
+## Removing PSSpark
 
 To remove PSSpark:
 
