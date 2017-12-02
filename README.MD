@@ -6,7 +6,7 @@ A PowerShell module for working with the Cisco Spark REST API
 
 ## Installing the module
 
-Install the module using:
+Install the module from the PowerShell Gallery using:
 
 ``` PowerShell
 PS> Install-Module -Name PSSpark
