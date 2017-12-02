@@ -2,7 +2,9 @@
 
 ## Description
 
-A PowerShell module for working with the Cisco Spark REST API
+A PowerShell module for working with the Cisco Spark REST API.
+
+Modeled after [PSSlack]("https://github.com/RamblingCookieMonster/PSSlack/")
 
 ## Installing the module
 
