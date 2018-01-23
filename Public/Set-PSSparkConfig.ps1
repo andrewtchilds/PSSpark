@@ -18,8 +18,8 @@ function Set-PSSparkConfig {
     )
 
     switch($PSBoundParameters.Keys) {
-        'Uri'   { $Script:PSSpark.Uri = $Uri }
-        'Token' { $Script:PSSpark.Token = $Token }
+        "Uri"   { $Script:PSSpark.Uri = $Uri }
+        "Token" { $Script:PSSpark.Token = $Token }
     }
 
     $Script:PSSpark | Export-Clixml -Path "$Env:TEMP\$Env:USERNAME-$Env:COMPUTERNAME-PSSparkConfig.xml"
