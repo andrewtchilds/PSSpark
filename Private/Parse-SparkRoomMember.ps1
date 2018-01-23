@@ -1,14 +1,14 @@
 function Parse-SparkRoomMember {
     [cmdletbinding()]
     param(
-        $InputObject
+        [array]$InputObject
     )
 
     if($InputObject.items) {
         $InputObject = $InputObject.items
     }
 
-    if(($InputObject.count -le 0) -and ($InputObject -is [Object[]])) {
+    if($InputObject.count -le 0) {
         return
     }
 
