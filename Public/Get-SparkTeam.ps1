@@ -26,7 +26,7 @@ function Get-SparkTeam {
         $Token = $Script:PSSpark.Token
     )
 
-    process{
+    process {
         if($PSCmdlet.ParameterSetName -eq "SparkTeam") {
             $Params = @{
                 Method = "teams/$TeamID"

@@ -33,7 +33,7 @@ function Get-SparkMessage {
         $Token = $Script:PSSpark.Token
     )
 
-    process{
+    process {
         if($PSCmdlet.ParameterSetName -eq "SparkMessage") {
             $Params = @{
                 Method = "messages/$MessageID"
