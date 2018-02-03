@@ -1,7 +1,7 @@
 function Parse-SparkUser {
     [cmdletbinding()]
     param(
-        [array]$InputObject
+        $InputObject
     )
 
     if($InputObject.items) {
@@ -17,6 +17,10 @@ function Parse-SparkUser {
             $User.lastActivity = [datetime]($User.lastActivity)
         }
 
+        if($User.created) {
+            $User.created = [datetime]($User.created)
+        }
+
         [PSCustomObject]@{
             PSTypeName = "PSSpark.User"
             Email = $User.emails
@@ -26,7 +30,7 @@ function Parse-SparkUser {
             LastName = $User.lastName
             Avatar = $User.avatar
             OrgID = $User.orgId
-            Created = [datetime]($User.created)
+            Created = $User.created
             LastActivity = $User.lastActivity
             Status = $User.status
             Type = $User.type

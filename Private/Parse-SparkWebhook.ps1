@@ -1,7 +1,7 @@
 function Parse-SparkWebhook {
     [cmdletbinding()]
     param(
-        [array]$InputObject
+        $InputObject
     )
 
     if($InputObject.items) {
@@ -13,6 +13,10 @@ function Parse-SparkWebhook {
     }
 
     foreach($Webhook in $InputObject) {
+        if($Webhook.created) {
+            $Webhook.created = [datetime]($Webhook.created)
+        }
+
         [PSCustomObject]@{
             PSTypeName = "PSSpark.Webhook"
             WebhookID = $Webhook.id
@@ -22,7 +26,7 @@ function Parse-SparkWebhook {
             Event = $Webhook.event
             Filter = $Webhook.filter
             Secret = $Webhook.secret
-            Created = [datetime]($Message.created)
+            Created = $Webhook.created
         }
     }
 }

@@ -1,7 +1,7 @@
 function Parse-SparkRoom {
     [cmdletbinding()]
     param(
-        [array]$InputObject
+        $InputObject
     )
 
     if($InputObject.items) {
@@ -13,13 +13,21 @@ function Parse-SparkRoom {
     }
 
     foreach($Room in $InputObject) {
+        if($Room.lastActivity) {
+            $Room.lastActivity = [datetime]($Room.lastActivity)
+        }
+
+        if($Room.created) {
+            $Room.created = [datetime]($Room.created)
+        }
+
         [PSCustomObject]@{
             PSTypeName = "PSSpark.Room"
             Name = $Room.title
             Type = $Room.type
             IsLocked = $Room.isLocked
-            LastActivity = [datetime]($Room.lastActivity)
-            Created = [datetime]($Room.created)
+            LastActivity = $Room.lastActivity
+            Created = $Room.created
             RoomID = $Room.id
             CreatorID = $Room.creatorId
             TeamID = $Room.teamId

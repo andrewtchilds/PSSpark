@@ -1,7 +1,7 @@
 function Parse-SparkRoomMember {
     [cmdletbinding()]
     param(
-        [array]$InputObject
+        $InputObject
     )
 
     if($InputObject.items) {
@@ -13,6 +13,10 @@ function Parse-SparkRoomMember {
     }
 
     foreach($RoomMember in $InputObject) {
+        if($RoomMember.created) {
+            $RoomMember.created = [datetime]($RoomMember.created)
+        }
+
         [PSCustomObject]@{
             PSTypeName = "PSSpark.RoomMember"
             RoomMemberID = $RoomMember.id
@@ -22,7 +26,7 @@ function Parse-SparkRoomMember {
             OrgID = $RoomMember.personOrgId
             Moderator = $RoomMember.isModerator
             Monitor = $RoomMember.isMonitor
-            Created = [datetime]($RoomMember.created)
+            Created = $RoomMember.created
         }
     }
 }

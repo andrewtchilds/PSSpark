@@ -1,7 +1,7 @@
 function Parse-SparkTeam {
     [cmdletbinding()]
     param(
-        [array]$InputObject
+        $InputObject
     )
 
     if($InputObject.items) {
@@ -13,10 +13,14 @@ function Parse-SparkTeam {
     }
 
     foreach($Team in $InputObject) {
+        if($Team.created) {
+            $Team.created = [datetime]($Team.created)
+        }
+
         [PSCustomObject]@{
             PSTypeName = "PSSpark.Team"
             Name = $Team.name
-            Created = [datetime]($Team.created)
+            Created = $Team.created
             TeamID = $Team.id
             CreatorID = $Team.creatorId
         }

@@ -1,7 +1,7 @@
 function Parse-SparkMessage {
     [cmdletbinding()]
     param(
-        [array]$InputObject
+        $InputObject
     )
 
     if($InputObject.items) {
@@ -13,6 +13,10 @@ function Parse-SparkMessage {
     }
 
     foreach($Message in $InputObject) {
+        if($Message.created) {
+            $Message.created = [datetime]($Message.created)
+        }
+
         [PSCustomObject]@{
             PSTypeName = "PSSpark.Message"
             MessageID = $Message.id
@@ -21,7 +25,7 @@ function Parse-SparkMessage {
             Text = $Message.text
             UserID = $Message.personId
             Email = $Message.personEmail
-            Created = [datetime]($Message.created)
+            Created = $Message.created
         }
     }
 }
