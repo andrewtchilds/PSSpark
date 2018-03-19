@@ -1,3 +1,6 @@
+# Enable TLS 1.1 and 1.2 support
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12, [System.Net.SecurityProtocolType]::Tls11, [System.Net.SecurityProtocolType]::Tls
+
 # Create a configuration file if it doesn't exist to store the Spark API token
 if(-not (Test-Path "$Env:TEMP\$Env:USERNAME-$Env:COMPUTERNAME-PSSparkConfig.xml")) {
     [PSCustomObject]@{
