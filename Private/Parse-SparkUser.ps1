@@ -30,6 +30,7 @@ function Parse-SparkUser {
             LastName = $User.lastName
             Avatar = $User.avatar
             OrgID = $User.orgId
+            Licenses = $User.licenses
             Created = $User.created
             LastActivity = $User.lastActivity
             Status = $User.status
